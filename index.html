@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Calibri, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    #container {
+      background-color: #fff;
+      width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    #inputText {
+      width: 90%; /* Increase the width to 100% */
+      padding: 10px; /* Increase padding for better visual appearance */
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    #countButton {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #countButton:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Count Vowels in a Word or Phrase</h1>
+    <p>Enter a word or phrase:</p>
+    <input type="text" id="inputText" placeholder="Type here...">
+    <br>
+    <button id="countButton" onclick="countVowels()">Count Vowels</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function countVowels() {
+      var inputText = document.getElementById("inputText").value.toLowerCase();
+      var vowelCount = 0;
+      
+      // Define the vowels
+      var vowels = 'aeiouyåäö';
+
+      for (var i = 0; i < inputText.length; i++) {
+        if (vowels.includes(inputText[i])) {
+          vowelCount++;
+        }
+      }
+
+      var resultElement = document.getElementById("result");
+      resultElement.textContent = `"${inputText}" contains ${vowelCount} vowels.`;
+    }
+  </script>
+</body>
+</html>
